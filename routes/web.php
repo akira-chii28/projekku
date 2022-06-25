@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front.index');
 });
 
 Auth::routes();
@@ -22,7 +22,19 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function() {
+Route::post('/dataqr/store', ['uses' => 'DataqrController@store', 'as' => 'dataqr-store']);
+
+Route::group(['prefix'=>'admin', 'middleware' => 'auth'], function() {
     Route::get('/', 'Admin\DashboardController@index');
+    Route::resource('/kategori', 'Admin\KategoriController');
+    Route::resource('/tugas', 'Admin\TugasController');
+    Route::resource('/order_005', 'Admin\Order_005Controller');
+    Route::resource('/roles', 'Admin\RoleController');
+    Route::resource('/users', 'Admin\UserController');
+    Route::resource('/pengunjung', 'Admin\PengunjungController');
+    Route::resource('/jabatan', 'Admin\JabatanController');
+    Route::resource('/pegawai', 'Admin\PegawaiController');
+    Route::resource('/dataqr', 'Admin\DataqrController');
+    Route::get('qrcode/{id}', 'Admin\PegawaiController@generate')->name('generate');
 });
 

@@ -5,14 +5,26 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img src="{{asset('public/images/logo.png')}}" alt="Logo"></a>
+                <a class="navbar-brand" href="./"><img src="{{asset('public/images/logo-poliwangi.png')}}" width="25%" alt="Logo"></a>
                 <a class="navbar-brand hidden" href="./"><img src="{{asset('public/images/logo2.png')}}" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="{{url('/admin')}}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="{{url('/admin/kategori')}}"> <i class="menu-icon fa fa-dashboard"></i>Nama Petugas</a>
+                        <a href="{{url('/admin/tugas')}}"> <i class="menu-icon fa fa-dashboard"></i>Pengunjung</a>
+                        <a href="{{url('/admin/order_005')}}"> <i class="menu-icon fa fa-dashboard"></i>Kendaraan</a>
+                        <a href="{{url('/admin/pengunjung')}}"> <i class="menu-icon fa fa-dashboard"></i>Pengunjung Booked</a>
+                        <a href="{{url('/admin/pegawai')}}"> <i class="menu-icon fa fa-dashboard"></i>Pegawai</a>
+                        <a href="{{url('/admin/jabatan')}}"> <i class="menu-icon fa fa-dashboard"></i>Jabatan</a>
+                        @role('admin')
+                        <a href="{{url('/admin/roles')}}"> <i class="menu-icon fa fa-dashboard"></i>Role</a>
+                        <a href="{{url('/admin/users')}}"> <i class="menu-icon fa fa-dashboard"></i>User</a>
+                        <a href="{{url('/admin/dataqr')}}"> <i class="menu-icon fa fa-dashboard"></i>Scan QR Code</a>
+                        @endrole
+
                     </li>
                     <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">

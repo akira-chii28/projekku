@@ -94,13 +94,21 @@
 
                             <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
 
-                            <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                            <a class="nav-link" href="{{ route('logout') }}" 
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            <i class="fa fa-power-off"></i> Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+
                         </div>
                     </div>
 
                     <div class="language-select dropdown" id="language-select">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown"  id="language" aria-haspopup="true" aria-expanded="true">
-                            <i class="flag-icon flag-icon-us"></i>
+                            <i class="flag-icon flag-icon-id"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="language">
                             <div class="dropdown-item">
